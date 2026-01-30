@@ -1,5 +1,7 @@
 def add(a, b):
-    return a + b
+    result = a + b
+    print("Result is:", result)
+    return result
 
 if __name__ == "__main__":
-    print("Addition:", add(2, 3))
+    add(10, 20)

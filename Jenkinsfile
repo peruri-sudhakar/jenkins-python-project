@@ -10,10 +10,9 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Build stage (Python project)'
+                 bat 'python app.py'
             }
         }
-
         stage('Test') {
             steps {
                 bat 'python -m pip install --upgrade pip'
