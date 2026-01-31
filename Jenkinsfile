@@ -8,22 +8,15 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                 bat 'python app.py'
-            }
-        }
-        stage('Test') {
-            steps {
-                bat 'python -m pip install --upgrade pip'
-                bat 'python -m pip install -r requirements.txt'
-                bat 'python -m pytest'
+                bat 'docker build -t python-jenkins-app .'
             }
         }
 
-        stage('Deploy') {
+        stage('Run Docker Container') {
             steps {
-                echo 'Deployment successful'
+                bat 'docker run --rm python-jenkins-app'
             }
         }
     }
